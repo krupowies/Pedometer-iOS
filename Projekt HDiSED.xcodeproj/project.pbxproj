@@ -3,20 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FB3C8DFB1F80CCF6DDB005B /* Pods_Projekt_HDiSED.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A54E175E9A120429F9C1458 /* Pods_Projekt_HDiSED.framework */; };
+		F41B4202250A091E0098023C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F41B4201250A091D0098023C /* GoogleService-Info.plist */; };
 		F4C204042508B63800C79A9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C204032508B63800C79A9C /* AppDelegate.swift */; };
 		F4C204062508B63800C79A9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C204052508B63800C79A9C /* SceneDelegate.swift */; };
 		F4C204082508B63800C79A9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C204072508B63800C79A9C /* ViewController.swift */; };
 		F4C2040B2508B63800C79A9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C204092508B63800C79A9C /* Main.storyboard */; };
 		F4C2040D2508B64A00C79A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C2040C2508B64A00C79A9C /* Assets.xcassets */; };
 		F4C204102508B64B00C79A9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C2040E2508B64B00C79A9C /* LaunchScreen.storyboard */; };
-		F4C204182508C61600C79A9C /* StepsPerHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C204172508C61600C79A9C /* StepsPerHour.swift */; };
+		F4C204182508C61600C79A9C /* StepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C204172508C61600C79A9C /* StepData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A54E175E9A120429F9C1458 /* Pods_Projekt_HDiSED.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projekt_HDiSED.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71B0A92A2FD54692D00CEABA /* Pods-Projekt HDiSED.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projekt HDiSED.release.xcconfig"; path = "Target Support Files/Pods-Projekt HDiSED/Pods-Projekt HDiSED.release.xcconfig"; sourceTree = "<group>"; };
+		937FC795F9C625E6568F3D95 /* Pods-Projekt HDiSED.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projekt HDiSED.debug.xcconfig"; path = "Target Support Files/Pods-Projekt HDiSED/Pods-Projekt HDiSED.debug.xcconfig"; sourceTree = "<group>"; };
+		F41B4201250A091D0098023C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4C204002508B63800C79A9C /* Projekt HDiSED.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projekt HDiSED.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C204032508B63800C79A9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C204052508B63800C79A9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +31,7 @@
 		F4C2040C2508B64A00C79A9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C2040F2508B64B00C79A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4C204112508B64B00C79A9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4C204172508C61600C79A9C /* StepsPerHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsPerHour.swift; sourceTree = "<group>"; };
+		F4C204172508C61600C79A9C /* StepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB3C8DFB1F80CCF6DDB005B /* Pods_Projekt_HDiSED.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19C27E0EBE68FE810678E360 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A54E175E9A120429F9C1458 /* Pods_Projekt_HDiSED.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4B91D75CB4C557D5FC2A26D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				937FC795F9C625E6568F3D95 /* Pods-Projekt HDiSED.debug.xcconfig */,
+				71B0A92A2FD54692D00CEABA /* Pods-Projekt HDiSED.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F4C203F72508B63800C79A9C = {
 			isa = PBXGroup;
 			children = (
 				F4C204022508B63800C79A9C /* Projekt HDiSED */,
 				F4C204012508B63800C79A9C /* Products */,
+				C4B91D75CB4C557D5FC2A26D /* Pods */,
+				19C27E0EBE68FE810678E360 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,7 +91,8 @@
 				F4C2040C2508B64A00C79A9C /* Assets.xcassets */,
 				F4C2040E2508B64B00C79A9C /* LaunchScreen.storyboard */,
 				F4C204112508B64B00C79A9C /* Info.plist */,
-				F4C204172508C61600C79A9C /* StepsPerHour.swift */,
+				F41B4201250A091D0098023C /* GoogleService-Info.plist */,
+				F4C204172508C61600C79A9C /* StepData.swift */,
 			);
 			path = "Projekt HDiSED";
 			sourceTree = "<group>";
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4C204142508B64B00C79A9C /* Build configuration list for PBXNativeTarget "Projekt HDiSED" */;
 			buildPhases = (
+				6569B1F0CA37FAC0193F0852 /* [CP] Check Pods Manifest.lock */,
 				F4C203FC2508B63800C79A9C /* Sources */,
 				F4C203FD2508B63800C79A9C /* Frameworks */,
 				F4C203FE2508B63800C79A9C /* Resources */,
+				7FB6C7902B46462473CC85A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C204102508B64B00C79A9C /* LaunchScreen.storyboard in Resources */,
+				F41B4202250A091E0098023C /* GoogleService-Info.plist in Resources */,
 				F4C2040D2508B64A00C79A9C /* Assets.xcassets in Resources */,
 				F4C2040B2508B63800C79A9C /* Main.storyboard in Resources */,
 			);
@@ -136,13 +166,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6569B1F0CA37FAC0193F0852 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Projekt HDiSED-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FB6C7902B46462473CC85A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Projekt HDiSED/Pods-Projekt HDiSED-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Projekt HDiSED/Pods-Projekt HDiSED-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Projekt HDiSED/Pods-Projekt HDiSED-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F4C203FC2508B63800C79A9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F4C204082508B63800C79A9C /* ViewController.swift in Sources */,
-				F4C204182508C61600C79A9C /* StepsPerHour.swift in Sources */,
+				F4C204182508C61600C79A9C /* StepData.swift in Sources */,
 				F4C204042508B63800C79A9C /* AppDelegate.swift in Sources */,
 				F4C204062508B63800C79A9C /* SceneDelegate.swift in Sources */,
 			);
@@ -286,6 +358,7 @@
 		};
 		F4C204152508B64B00C79A9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 937FC795F9C625E6568F3D95 /* Pods-Projekt HDiSED.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -305,6 +378,7 @@
 		};
 		F4C204162508B64B00C79A9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71B0A92A2FD54692D00CEABA /* Pods-Projekt HDiSED.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

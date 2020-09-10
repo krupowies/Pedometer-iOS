@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct StepsPerHour {
+struct StepData {
     let numberOfSteps: Int
     let day: Int
     let month: Int
     let year: Int
     let hour: Int
     let minutes: Int
+    let seconds: Int
+    let id: Int
 }

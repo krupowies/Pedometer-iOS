@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreMotion
+import Firebase
+import StepData
 
 class ViewController: UIViewController {
 
@@ -16,6 +18,8 @@ class ViewController: UIViewController {
     let activityManager = CMMotionActivityManager()
     let pedometer = CMPedometer()
     var timer = Timer()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +41,13 @@ class ViewController: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
+        // let timeInterval = NSDate().timeIntervalSince1970
         print("day : \(day) month : \(month) year : \(year)")
         print("hour : \(hour) and minutes \(minutes)")
         print("seconds : \(seconds)")
     }
     
-    func countSteps(){
+    func countSteps() {
         if CMPedometer.isStepCountingAvailable() {
             self.pedometer.startUpdates(from: Date()) { (data, error) in
                 if error == nil {
@@ -50,12 +55,34 @@ class ViewController: UIViewController {
                         DispatchQueue.main.async {
                             print("STEPS : \(response.numberOfSteps)")
                             self.numberOfSteps.text = response.numberOfSteps.stringValue
-                            print("dupa")
                         }
                     }
                 }
             }
         }
     }
+    
+    func currentTime()->Calendar {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        return calendar
+    }
+    
+    
+    func createPack()->StepData {
+        let calendar = currentTime()
+        let stepValue = Int(numberOfSteps.text) ?? 0
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
+        let pack = StepData
+    }
+    
+    
 }
 
