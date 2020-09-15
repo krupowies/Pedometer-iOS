@@ -8,7 +8,11 @@
 
 import UIKit
 import CoreMotion
+import FirebaseCore
 import Firebase
+import FirebaseFirestore
+
+let db = Firestore.firestore()
 
 struct StepData {
     let numberOfSteps: Int
@@ -26,7 +30,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var numberOfSteps: UILabel!
     
-    let db = Firestore.firestore()
+    
+    
     
     let activityManager = CMMotionActivityManager()
     let pedometer = CMPedometer()
@@ -37,10 +42,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        numberOfSteps.text = "12"
-        let testPack = createPack()
-        print(testPack)
-        sendPack(pack: testPack)
+        //numberOfSteps.text = "12"
+        countSteps()
+       
     }
     
 //    func repeatFunc(){
@@ -56,6 +60,9 @@ class ViewController: UIViewController {
                         DispatchQueue.main.async {
                             print("STEPS : \(response.numberOfSteps)")
                             self.numberOfSteps.text = response.numberOfSteps.stringValue
+                            let testPack = self.createPack()
+                            print(testPack)
+                            self.sendPack(pack: testPack)
                         }
                     }
                 }
@@ -86,6 +93,11 @@ class ViewController: UIViewController {
     func sendPack(pack: StepData) {
         db.collection("steps").addDocument(data:
             ["Number of steps": pack.numberOfSteps,
+             "year": pack.year,
+             "month": pack.month,
+             "day": pack.day,
+             "hour": pack.hour,
+             "minute": pack.minutes,
              "seconds": pack.seconds
         ]) { (error) in
             if let e = error {
