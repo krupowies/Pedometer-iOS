@@ -16,12 +16,8 @@ let db = Firestore.firestore()
 
 struct StepData {
     let numberOfSteps: Int
-    let day: Int
-    let month: Int
-    let year: Int
-    let hour: Int
-    let minutes: Int
-    let seconds: Int
+    let date: String
+    let time: String
 }
 
 
@@ -42,16 +38,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //numberOfSteps.text = "12"
         countSteps()
        
     }
     
-//    func repeatFunc(){
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.printData), userInfo: nil, repeats: true)
-//    }
-    
-    
+
     func countSteps() {
         if CMPedometer.isStepCountingAvailable() {
             self.pedometer.startUpdates(from: Date()) { (data, error) in
@@ -85,20 +76,20 @@ class ViewController: UIViewController {
             let minutesCur = calendar.component(.minute, from: date)
             let secondsCur = calendar.component(.second, from: date)
             
-            return StepData(numberOfSteps: stepValue, day: dayCur, month: monthCur, year: yearCur, hour: hourCur, minutes: minutesCur, seconds: secondsCur)
+            let dateCur = "\(dayCur).\(monthCur).\(yearCur)"
+            let timeCur = "\(hourCur):\(minutesCur):\(secondsCur)"
+            
+            
+            return StepData(numberOfSteps: stepValue, date: dateCur, time: timeCur)
         }
-        return StepData(numberOfSteps: 0, day: 0, month: 0, year: 0, hour: 0, minutes: 0, seconds: 0)
+        return StepData(numberOfSteps: 0, date: "00.00.0000", time: "00:00")
     }
     
     func sendPack(pack: StepData) {
         db.collection("steps").addDocument(data:
             ["Number of steps": pack.numberOfSteps,
-             "year": pack.year,
-             "month": pack.month,
-             "day": pack.day,
-             "hour": pack.hour,
-             "minute": pack.minutes,
-             "seconds": pack.seconds
+             "Date": pack.date,
+             "Time": pack.time
         ]) { (error) in
             if let e = error {
                 print("Problem found : \(e)")
