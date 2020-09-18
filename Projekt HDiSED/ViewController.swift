@@ -24,22 +24,46 @@ struct StepData {
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfSteps: UILabel!
-    
-    
-    
     
     let activityManager = CMMotionActivityManager()
     let pedometer = CMPedometer()
     var timer = Timer()
-    
-    
+    var stepsTab: [StepData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.dataSource = self
         countSteps()
-       
+        loadData()
+    }
+    
+    func loadData(){
+        
+        db.collection("steps").order(by: "Number of steps")
+            .addSnapshotListener { (querySnapshot, error) in
+            
+            self.stepsTab = []
+            
+            if let e = error {
+                print("Problem wit loading data. \(e)")
+            } else {
+                if let snapshotdoc = querySnapshot?.documents {
+                    for doc in snapshotdoc {
+                        let data = doc.data()
+                        if let numberOfSteps = data["Number of steps"] as? Int, let date = data["Date"] as? String, let time = data["Time"] as? String {
+                            let newStepData = StepData(numberOfSteps: numberOfSteps, date: date, time: time)
+                            self.stepsTab.append(newStepData)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
 
@@ -101,3 +125,18 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stepsTab.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
+        
+        let cellText: String = "Date: \(stepsTab[indexPath.row].date), \(stepsTab[indexPath.row].time) Steps: \(stepsTab[indexPath.row].numberOfSteps)"
+        
+        cell.textLabel?.text = cellText
+            
+        return cell
+    }
+}
